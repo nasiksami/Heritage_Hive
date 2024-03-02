@@ -1,28 +1,32 @@
 # <span style="color:orange">Lecture overview</span>
 
-In this lecture, we'll harness the power of Django's built-in admin UI by creating admin classes for each of the models we defined in the previous section. The Django admin is a powerful tool that allows us to perform CRUD (Create, Read, Update, Delete) operations on our database entries directly through a user-friendly browser interface.
+In this section, we'll delve into the world of testing and focus on writing comprehensive model tests for our Django project. Model tests play a crucial role in ensuring the reliability and robustness of our application's data structures and functionalities. By rigorously testing each model and its methods, we can identify and address potential issues before they impact our production environment.
 
-Creating Admin Classes:
+Understanding the Importance of Model Tests:
 
-For every model we defined in the previous section, we'll create corresponding admin classes. These classes will determine how the model's data is presented and edited in the admin interface. By customizing the admin classes, we can tailor the admin UI to best suit our application's needs.
+We'll begin by emphasizing the significance of model tests in the development process. Comprehensive model tests provide confidence in the correctness of our data models and the logic encapsulated within them. We'll explore the benefits of early testing and how it contributes to maintaining a stable codebase.
 
-Exploring the Django Admin UI:
+Setting Up the Test Environment:
 
-Before diving into customizations, we'll first explore the default Django admin UI. To access it, we'll use a Django command: 'python manage.py createsuperuser.' This command allows us to create a superuser, granting administrative privileges to access and manage the admin interface.
+Before writing our first tests, we need to establish the test environment. We'll configure Django to use a separate test database, ensuring that our tests don't interfere with the production database. We'll also create a testing framework, including a test suite to organize and execute our tests efficiently.
 
-Registering Models with Admin Classes:
+Test Suites and Test Organization:
 
-Once we've created the admin classes, we'll register each model with its corresponding admin class. This step ensures that our customizations are applied to the Django admin UI, enabling us to efficiently manage the data in our application.
+To maintain a clean and organized test suite, we'll learn best practices for structuring our tests. Proper test organization enhances readability and maintainability, making it easier to identify and fix issues in the future.
 
-Leveraging CRUD Operations:
+Testing Model Fields and Constraints:
 
-With our admin classes in place, we'll take advantage of Django's admin UI to perform CRUD operations. We'll be able to add new entries, view existing data, update information, and delete records – all through an intuitive and user-friendly interface.
+We'll start by testing the fields and constraints of each model. This includes verifying data types, default values, nullability, uniqueness, and other constraints defined in the model. By thoroughly examining these aspects, we can ensure that the data stored in our database adheres to the expected structure and rules.
 
-By the end of this section, you'll have a comprehensive understanding of how to wire up admin classes to leverage Django's built-in admin UI effectively. You'll be able to navigate, manage, and manipulate your application's data with ease, thanks to the powerful capabilities of Django's admin interface. With your custom admin classes in place, the admin UI will become a crucial tool for efficiently managing your web application's database and facilitating seamless interactions with your data.
+Testing Model Methods:
+
+Next, we'll focus on testing the methods defined in each model. We'll write test cases to cover all possible scenarios and edge cases for these methods. This includes ensuring that methods return expected results, handle invalid inputs gracefully, and produce accurate outcomes under various conditions.
+
+By the end of this section, you'll be equipped with the knowledge and skills to write thorough model tests, ensuring the resilience of your application's data models and methods. Through extensive testing, we can confidently detect and address potential weaknesses, laying a solid foundation for a stable and reliable Django project.
 
 # <span style="color:orange">Code changes</span>
 
-You can find all code changes [here](https://github.com/bobby-didcoding/build-and-deploy-dockerised-django-app-handbook/pull/4/files).
+You can find all code changes [here](https://github.com/bobby-didcoding/build-and-deploy-dockerised-django-app-handbook/pull/5/files).
 
 
 ***
