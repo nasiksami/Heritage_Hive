@@ -43,7 +43,7 @@ THIRD_PARTY_APPS = [
     "debug_toolbar",
 ]
 
-APPS = []
+APPS = ["core", "ecommerce", "tasks", "users"]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + APPS
 SITE_ID = 1
@@ -93,6 +93,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 # PROJECT CONTEXT
+                "course.context_processor.project_context",
             ],
         },
     },
@@ -133,6 +134,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+AUTH_USER_MODEL = "users.CustomUser"
 
 SUSPEND_SIGNALS = False
 
