@@ -1,32 +1,41 @@
 # <span style="color:orange">Lecture overview</span>
 
-In this section, we'll delve into the world of testing and focus on writing comprehensive model tests for our Django project. Model tests play a crucial role in ensuring the reliability and robustness of our application's data structures and functionalities. By rigorously testing each model and its methods, we can identify and address potential issues before they impact our production environment.
+Welcome to the "Wiring Django Views to URLs" course section! In this final module before we embark on creating captivating HTML templates, we will focus on the essential task of connecting our Django views to specific URLs. The URL configuration plays a vital role in determining how users interact with your web application and access different functionalities. By mastering the art of URL routing and view mapping, you will establish a solid foundation for building a robust and user-friendly web application. Upon completing this section, you will be well-equipped to navigate users seamlessly through your application and ensure a smooth user experience.
 
-Understanding the Importance of Model Tests:
+Understanding URL Configuration in Django:
 
-We'll begin by emphasizing the significance of model tests in the development process. Comprehensive model tests provide confidence in the correctness of our data models and the logic encapsulated within them. We'll explore the benefits of early testing and how it contributes to maintaining a stable codebase.
+Familiarize yourself with Django's URL dispatcher and its role in directing incoming requests to appropriate views.
+Learn about URL patterns, regex matching, and named URL patterns.
 
-Setting Up the Test Environment:
+Defining URL Patterns for Views:
 
-Before writing our first tests, we need to establish the test environment. We'll configure Django to use a separate test database, ensuring that our tests don't interfere with the production database. We'll also create a testing framework, including a test suite to organize and execute our tests efficiently.
+Create URL patterns for each of your Django views to establish a clear and organized URL structure.
 
-Test Suites and Test Organization:
+Managing URL Namespaces:
 
-To maintain a clean and organized test suite, we'll learn best practices for structuring our tests. Proper test organization enhances readability and maintainability, making it easier to identify and fix issues in the future.
+Explore URL namespaces to avoid naming conflicts and enhance code maintainability.
+Organize URL patterns into namespaces for different sections of your web application.
 
-Testing Model Fields and Constraints:
+Using Django's Include Functionality:
 
-We'll start by testing the fields and constraints of each model. This includes verifying data types, default values, nullability, uniqueness, and other constraints defined in the model. By thoroughly examining these aspects, we can ensure that the data stored in our database adheres to the expected structure and rules.
+Learn how to utilize the include function to break down your URL configuration into modular and reusable components.
+Incorporate app-specific URL configurations into the main project URL configuration.
 
-Testing Model Methods:
+Mapping Views to URLs:
 
-Next, we'll focus on testing the methods defined in each model. We'll write test cases to cover all possible scenarios and edge cases for these methods. This includes ensuring that methods return expected results, handle invalid inputs gracefully, and produce accurate outcomes under various conditions.
+Connect your Django views to corresponding URL patterns to ensure proper handling of user requests.
+Implement view functions and class-based views to handle various URL paths.
 
-By the end of this section, you'll be equipped with the knowledge and skills to write thorough model tests, ensuring the resilience of your application's data models and methods. Through extensive testing, we can confidently detect and address potential weaknesses, laying a solid foundation for a stable and reliable Django project.
+URL Parameter Passing and Query Parameters:
+
+Explore methods for passing parameters in URLs and extracting them in view functions.
+Implement query parameters to enable flexible filtering and sorting options in your web application.
+
+By the end of this course section, you will have successfully wired up all your Django views to URLs, creating a clear and logical structure for users to navigate through your web application. You will be fully prepared to move on to the exciting phase of creating HTML templates, where your well-defined views and URL mappings will come to life with engaging user interfaces. Let's dive into the world of URL routing and set the stage for a seamless user experience!
 
 # <span style="color:orange">Code changes</span>
 
-You can find all code changes [here](https://github.com/bobby-didcoding/build-and-deploy-dockerised-django-app-handbook/pull/5/files).
+You can find all code changes [here](https://github.com/bobby-didcoding/build-and-deploy-dockerised-django-app-handbook/pull/13/files).
 
 
 ***
