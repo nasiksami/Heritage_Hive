@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-# Heritage_Hive
-=======
 # <span style="color:orange">Building a Production-Ready Django Project with a Digital Resume and Shop</span>
 
 ## <span style="color:orange">Background</span>
@@ -19,7 +16,7 @@ In this hands-on course, we will delve into the world of Django, one of the most
 1. Navigate to your development directory and open a terminal.
 2. Clone the development repository:
     ```
-    git clone -b 01-settings https://github.com/bobby-didcoding/build-and-deploy-dockerised-django-app-handbook.git .
+    git clone -b 03-models https://github.com/bobby-didcoding/build-and-deploy-dockerised-django-app-handbook.git .
     ```
 
 
@@ -83,4 +80,3 @@ Each branch has its own `LECTURE_OVERVIEW.md` file that describes what we will c
 
 ***
 ***
->>>>>>> Stashed changes

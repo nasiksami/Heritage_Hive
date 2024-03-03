@@ -1,32 +1,44 @@
 # <span style="color:orange">Lecture overview</span>
 
-<<<<<<< Updated upstream
-Welcome to the next installment of our course, where we guide you through the process of getting started with a Dockerized Django application. In this video tutorial, we'll hold your hand as we walk you through the steps of cloning a GitHub repository, understanding the project's file and folder structure, and preparing to dive into coding.
+In this lecture, we'll embark on the journey of building a robust Django application by creating essential models for various components. Our project will consist of four apps: ecommerce, core, tasks, and users. Each app serves a distinct purpose, contributing to the overall functionality of the web application.
 
-We'll focus on the practical aspects of acquiring the project and gaining an understanding of its inner workings.
+Core App Models:
 
-During this hands-on tutorial, you will:
+We begin by setting up the core app, which will serve as the foundation for our project. Here, we'll define essential models to capture crucial information. These models include:
 
-1. Discover the GitHub Repository: Learn how to find and select a suitable GitHub repository that contains the Dockerized Django application you'll be working with.
+- Blogs: Store blog posts with relevant fields like title, content, author, and publication date.
 
-2. Clone the Repository: Follow along as we guide you through the process of cloning the repository, creating a local copy on your machine for exploration and modification.
+- Contact Form Information: Capture user inquiries with details like name, email, and message.
 
-3. Examine the File and Folder Structure: Take a closer look at the project's file and folder structure, understanding the purpose of key files and directories.
+- Testimonials: Record client testimonials, including their name and feedback.
 
-4. Preparing for Coding: Gain confidence as we explain the essential components and dependencies of the Dockerized Django application, setting the stage for your coding endeavors.
-=======
-Welcome to the next video lecture in our course! Building upon the foundational knowledge from the previous lectures, this session focuses on an often overlooked yet crucial aspect of web application development: how to make our app deployable.
+Ecommerce App Models:
 
-In this video, we delve into the process of making our Django application deployable, starting from either the main branch or a new branch in the GitHub repository. You have the flexibility to either make the necessary changes directly in the main branch or clone down the new branch, depending on your preference and workflow.
+Next, we'll focus on the ecommerce app, which handles product-related data and transactions. The ecommerce models include:
 
-Throughout the video, we methodically walk you through the essential changes that are required. One of the key aspects we address is the management of environment-specific settings. While the standard settings.py file may work in production environments, it can become unwieldy and difficult to maintain with multiple if-else statements. To address this, we explore the concept of a common settings file that is inherited by environment-specific setting files, promoting cleaner code and easier maintenance.
+- Products: Store product details such as name, description, price, and inventory status.
+
+- Invoices: Keep track of customer invoices, including associated products and payment details.
+
+- Stripe Sessions: Record information about payment sessions, seamlessly integrating with Stripe for secure payments.
+
+Users App and CustomUser Model:
+
+To implement user authentication and extend the built-in user model, we'll work with the users app. Here, we'll define a custom user model (CustomUser) that allows us to add custom fields and functionalities. This ensures flexibility and scalability for user-related features in our application.
+
+Tasks App with Celery Implementation (Later in the Course):
+While we won't delve into the implementation just yet, we'll prepare the groundwork by creating the tasks app. This app will be integrated with Celery later in the course to manage background tasks and asynchronous processing effectively.
+
+Utilizing Abstract Classes and Django Extensions:
+
+To promote code reusability and maintain consistency, we'll create abstract classes and leverage Django extensions. Abstract classes will define common fields and behaviors shared across multiple models, reducing redundancy. Additionally, we'll utilize Django extensions to implement fields like 'status,' 'slug,' and 'created' efficiently across all models, streamlining development.
+
+Throughout this section, you'll gain valuable insights into designing and implementing Django models for various app components, ensuring a well-structured and scalable project. By combining abstract classes, Django extensions, and custom user models, we'll create a dynamic web application with extensive capabilities, ready to meet the demands of the real-world production environment.
 
 # <span style="color:orange">Code changes</span>
 
-You can find all code changes [here](https://github.com/bobby-didcoding/build-and-deploy-dockerised-django-app-handbook/pull/1/files).
->>>>>>> Stashed changes
+You can find all code changes [here](https://github.com/bobby-didcoding/build-and-deploy-dockerised-django-app-handbook/pull/3/files).
 
-5. By the end of this video, you'll have the necessary foundation to start coding with the Dockerized Django application. We'll help you navigate through the initial setup process, ensuring you feel comfortable with the project's structure and ready to embark on your coding journey.
 
 ***
 ***
