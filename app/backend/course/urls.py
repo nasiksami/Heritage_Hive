@@ -15,8 +15,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+<<<<<<< Updated upstream
 from django.urls import path
+=======
+>>>>>>> Stashed changes
 
 urlpatterns = [
     path("admin/", admin.site.urls),
 ]
+<<<<<<< Updated upstream
+=======
+
+if not settings.PRODUCTION:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+else:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+admin.site.site_header = "Course Dashboard"
+admin.site.site_title = "Dashboard"
+admin.site.index_title = "Dashboard"
+>>>>>>> Stashed changes
