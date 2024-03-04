@@ -1,0 +1,109 @@
+{% extends 'base/base.html' %}
+{% load static cache %}
+
+<!-- ================================
+    START SEO BLOCKS
+================================= -->
+{% block page_title %}
+{% endblock %}
+
+{% block keywords %}
+{% endblock %}
+
+{% block description %}
+{% endblock %}
+
+{% block schema %}
+{% endblock %}
+<!-- ================================
+    END SEO BLOCKS AREA
+================================= -->
+
+<!-- ================================
+    START HEADER SECTION
+================================= -->
+{% block extend_header %}
+{% endblock %}
+<!-- ================================
+    END HEADER SECTION
+================================= -->
+
+<!-- ================================
+    START MODAL SECTION
+================================= -->
+{% block modal %}
+{% endblock %}
+<!-- ================================
+    END MODAL SECTION
+================================= -->
+
+<!-- ================================
+    START FOOTER SECTION
+================================= -->
+
+{% block extend_footer %}
+{% endblock %}
+
+<!-- ================================
+    END FOOTER SECTION
+================================= -->
+
+<!-- ================================
+    START CONTENT SECTION
+================================= -->
+{% block content %}
+<section>
+    <div class="innerPageBannerCol">
+      <div class="container">
+        <div class="row g-4 g-md-3  align-items-center">
+          <div class="col-md-6">
+            <div class="bannerContent">
+              <h1 class="xlTitle pb-md-3">{{object.title}}</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sectionSpaceSm">
+      <div class="container">
+        <div class="row row--50">
+          <div class="col-lg-6 mb--40">
+              <div class="h-100">
+                  <div class="position-sticky sticky-top">
+                      <div class="single-product-thumbnail axil-product"> 
+                          <div class="thumbnail">
+                              <img src="{{object.image.url}}" alt="{{object.title}} image">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-6 mb--40">
+              <h2>{{object.title}}</h2>
+              <p>£{{object.price.amount}}</p>
+              {{object.body|safe}}
+              
+              {% if request.user.is_authenticated %}
+              <a href="javacript:void(0)" onclick="manageCart('/manage-cart/{{object.id}}/add/')" class="btn btnPrimary">Add to cart</a>
+              {% else %}
+              <p>Please <a href="{% url 'users:signup' %}">Sign-up</a>/<a href="{% url 'users:login' %}">Login</a> to add to cart</p>
+              {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
+<!-- ================================
+    END CONTENT SECTION
+================================= -->
+
+
+
+
+
+
