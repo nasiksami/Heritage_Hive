@@ -12,8 +12,8 @@ def load_data(data):
 
 
 def prepare_data(df):
-    docx = df['product_name'].tolist()
-    payload = df[['id','product_name', 'images','stock','price','is_available','slug', 'description']].to_dict('records')
+    docx = df[['product_name', 'description']].values.tolist()
+    payload = df[['id','product_name','description']].to_dict('records')
     return docx, payload
 
 
@@ -41,7 +41,7 @@ client.recreate_collection(collection_name='product_collection',
 
 
 model = SentenceTransformer('all-MiniLM-L6-v2')
-df = load_data('data1.csv')
+df = load_data('E:\ecommerce_local\data1.csv')
 docx, payload = prepare_data(df)
 print(docx)
 vectors = model.encode(docx, show_progress_bar=True)
