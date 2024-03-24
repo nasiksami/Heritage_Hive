@@ -54,7 +54,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'ecommerce.middleware.SellerAccessMiddleware',
 ]
 
 ROOT_URLCONF = 'ecommerce.urls'
@@ -72,6 +71,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'Category.context_processors.menu_links',
                 'cart.context_processors.counter',
+           
             ],
         },
     },
@@ -137,11 +137,9 @@ USE_TZ = True
 
 # static file configurations
 STATIC_URL = '/static/'
-STATIC_ROOT=BASE_DIR /'static'
 STATICFILES_DIRS=[
-    'ecommerce/static',
+    BASE_DIR/'static'
 ]
-
 # settings.py
 
 # Use a BigAutoField for all models by default
