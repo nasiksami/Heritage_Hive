@@ -1,7 +1,6 @@
-# <span style="color:orange">Building a Production-Ready Django Project with a Digital Resume and Shop</span>
+# <span style="color:orange"> Django E-commerce Site Project</span>
 
-## <span style="color:orange">Background</span>
-Welcome to our comprehensive course on building a fully functional and production-ready Django project! This course is designed to provide you with a step-by-step guide through the entire process of creating a robust web application – a Digital Resume with an integrated lightweight shop – that will be ready for deployment and accessible to the public.
+
 
 ## <span style="color:orange">Course Overview</span>
 In this hands-on course, we will delve into the world of Django, one of the most popular and powerful web development frameworks, to build a feature-rich web application that showcases your skills, experience, and achievements in a digital resume format. Additionally, we will incorporate a lightweight shop to offer products or services, enhancing the overall functionality and user experience.
