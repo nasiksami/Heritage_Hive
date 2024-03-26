@@ -8,9 +8,9 @@
 <meta http-equiv="cache-control" content="max-age=604800" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<title>GreatKart | One of the Biggest Online Shopping Platform</title>
+<title>Heritage Hive</title>
 
-<link href="{% static 'images/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
+<link href="{% static './images/logo1.png' %}" rel="shortcut icon" type="image/x-icon">
 
 <!-- jQuery -->
 <script src="{% static 'js/jquery-2.0.0.min.js' %}" type="text/javascript"></script>
@@ -44,16 +44,14 @@
 $(document).ready(function() {
 	// jQuery code
 
-}); 
+});
 // jquery end
 </script>
 
 </head>
 <body>
-{% if  request.user.is_seller %}
-{%else %}
+
     {% include 'include/header.html' %}
-{% endif %}
     {% block content %}
     {% endblock %}
 

@@ -1,2 +1,1 @@
-# Heritage Hive E-Commerce Project
-
+# great_kart_ecommerce-site

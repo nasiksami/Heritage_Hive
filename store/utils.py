@@ -13,6 +13,7 @@ def prepare_data(df):
     payload = df[['id','product_name','description']].to_dict('records')
     return docx, payload
 
+
 def save_vectors(vectors):
     with open('vectorized_courses.pickle', 'wb') as f:
         pickle.dump(vectors, f)
