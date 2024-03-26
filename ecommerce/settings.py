@@ -54,7 +54,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'ecommerce.middleware.SellerAccessMiddleware',
 ]
 
 ROOT_URLCONF = 'ecommerce.urls'
@@ -70,8 +69,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'Category.context_processors.menu_links',
+                'Category.context_processors.links',
                 'cart.context_processors.counter',
+           
             ],
         },
     },
@@ -137,10 +137,12 @@ USE_TZ = True
 
 # static file configurations
 STATIC_URL = '/static/'
-STATIC_ROOT=BASE_DIR /'static'
-STATICFILES_DIRS=[
-    'ecommerce/static',
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+
 ]
+
 
 # settings.py
 
@@ -164,5 +166,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'murmubishal051@gmail.com'
+# EMAIL_HOST_PASSWORD = 'bitf bbka xnmy sbue'
+
 EMAIL_HOST_USER='heritagehive872@gmail.com'
 EMAIL_HOST_PASSWORD='qozv drew svkw ufgx'
