@@ -23,11 +23,10 @@
                         <!-- Start .row -->
                         <div class="col-lg-6">
                             <!-- col-lg-6 start here -->
-
                             <div class="invoice-logo">
-                                <img src="{% static '/images/logo1.png' %}" alt="Invoice logo">
+                                <img src="{% static '/images/logo1.png' %}" alt="Invoice logo" style="max-height: 120px;">
                             </div>
-
+                            
                         </div>
                         <!-- col-lg-6 end here -->
                         <div class="col-lg-6">
@@ -119,6 +118,6 @@
 
 <style>
     .invoice-logo img {
-        max-height: 120px !important; /* Add !important to override any other conflicting styles */
+        max-height: 40px !important; /* Add !important to override any other conflicting styles */
     }
 </style>

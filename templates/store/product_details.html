@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
 
 
 <section class="section-content padding-y bg">
   <div class="container">
+
+
+
 
     <!-- ============================ COMPONENT 1 ================================= -->
     <div class="card">
@@ -78,6 +82,38 @@
                   {% endif %}
                 {% endif %}
 
+
+
+                
+
+
+                <div class="social-media-share-buttons">
+                  <br>
+                  <br>
+                  <h6>Share This Product:</h6>
+                  <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank" class="btn btn-primary">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                  </a>
+                  <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text=Check out this product!" target="_blank" class="btn btn-info">
+                    <i class="fab fa-twitter"></i> Twitter
+                  </a>
+                  <!-- Updated LinkedIn Share Link -->
+                  <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{ request.build_absolute_uri }}" target="_blank" class="btn btn-warning">
+                    <i class="fab fa-linkedin-in"></i> LinkedIn
+                  </a>
+                  <!-- Pinterest Share Button -->
+                  <a href="http://pinterest.com/pin/create/button/?url={{ request.build_absolute_uri }}&media={{ request.build_absolute_uri|add:single_product.images.url }}&description={{ single_product.product_name }}" target="_blank" class="btn btn-danger">
+                    <i class="fab fa-pinterest-p"></i> Pinterest
+                  </a>
+                  <!-- Vimeo Share Button (Relevant for video content) -->
+                  <!-- This button is for demonstration and might need to be adjusted based on actual Vimeo video URLs -->
+                  <a href="https://vimeo.com/share?url={{ request.build_absolute_uri }}" target="_blank" class="btn btn-dark">
+                    <i class="fab fa-vimeo-v"></i> Vimeo
+                  </a>
+                </div>
+                
+<!-- End of Social Media Share Buttons -->
+
             </article> <!-- product-info-aside .// -->
           </form>
 
@@ -137,9 +173,7 @@
 
             <input type="submit" value="Submit Review" class="btn btn-primary">
             {% else %}
-
             <p>You Must Purchase This Product to Post a Review.</p>
-
             {% endif %}
 
             {% else %}

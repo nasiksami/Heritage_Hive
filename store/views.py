@@ -13,6 +13,9 @@ from django.core.mail import EmailMessage
 
 from subscribe.classes import ConcreteSubject
 from subscribe.models import SubscribeModel
+
+
+
 # Create your views here.
 from .models import Product
 import pandas as pd
@@ -40,9 +43,7 @@ client.recreate_collection(collection_name='product_collection',
 
 # vectorized our data create word embedaded
 model = SentenceTransformer('all-MiniLM-L6-v2')
-
-df = load_data('data1.csv')
-
+df = load_data('~/ecommerce_final/data1.csv')
 docx, payload = prepare_data(df)
 # vectors=load_vectors('vectorized_courses.pickle')
 # print(docx)
@@ -274,7 +275,7 @@ def add_product(request):
                     }
                     
                 subject = 'New Product Added'
-                message = f"A new item '{product_name}' has been added in category {category.category_name} in our greatStore. Check it out!"
+                message = f"A new item '{product_name}' has been added in category {category.category_name} in our greatStore. Check it out! Visit our store at https://20.151.74.5/"
 
                 subscribeModel =SubscribeModel.objects.filter(category=category)
                 users=0
