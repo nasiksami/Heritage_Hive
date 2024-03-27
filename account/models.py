@@ -3,9 +3,15 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager  # Impo
 from abc import ABC, abstractmethod  # Importing ABC and abstractmethod for abstract classes
 
 # Create your models here.
+<<<<<<< Updated upstream
 from subscribe.interface import Observer  # Importing Observer interface
 from django.contrib.auth.models import BaseUserManager  # Importing BaseUserManager from Django's authentication module
 from django.core.mail import EmailMessage  # Importing EmailMessage class from Django's core mail module
+=======
+from subscribe.interface import Observer
+from django.contrib.auth.models import BaseUserManager
+from django.core.mail import EmailMessage
+>>>>>>> Stashed changes
 
 class UserFactory(BaseUserManager):
     @staticmethod
@@ -108,9 +114,13 @@ class UserProfile(models.Model):
         return self.user.first_name  # Returning the first name of the user as string representation
 
     def full_address(self):
+<<<<<<< Updated upstream
         return f'{self.address_line_1} {self.address_line_2}'  # Returning full address of the user
 
 class Logo(models.Model):
     category_image = models.ImageField(upload_to='photos/logo', blank=True)  # Defining category image field
     created_at = models.DateTimeField(auto_now_add=True)  # Defining created at field
     updated_at = models.DateTimeField(auto_now=True)  # Defining updated at field
+=======
+        return f'{self.address_line_1} {self.address_line_2}'
+>>>>>>> Stashed changes

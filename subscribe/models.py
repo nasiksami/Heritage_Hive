@@ -5,3 +5,5 @@ from account.models import Account
 class SubscribeModel(models.Model):
     category=models.ForeignKey(Category,on_delete=models.CASCADE,blank=True,null=True)
     subscribers=models.ManyToManyField(Account)
+
+

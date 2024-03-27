@@ -41,7 +41,7 @@ client.recreate_collection(collection_name='product_collection',
 
 
 model = SentenceTransformer('all-MiniLM-L6-v2')
-df = load_data('E:\ecommerce_local\data1.csv')
+df = load_data('data1.csv')
 docx, payload = prepare_data(df)
 print(docx)
 vectors = model.encode(docx, show_progress_bar=True)

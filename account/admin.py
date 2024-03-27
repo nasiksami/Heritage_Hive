@@ -1,7 +1,14 @@
+<<<<<<< Updated upstream
 from django.contrib import admin  # Import the admin module from Django
 from django.contrib.auth.admin import UserAdmin  # Import the UserAdmin class from Django's authentication admin
 from .models import Account, UserProfile, Logo  # Import the models Account, UserProfile, and Logo from the current directory
 from django.utils.html import format_html  # Import format_html function from Django utils module
+=======
+from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
+from .models import Account, UserProfile
+from django.utils.html import format_html
+>>>>>>> Stashed changes
 
 # Register your models here.
 
@@ -25,3 +32,8 @@ admin.site.register(Account, AccountAdmin)  # Register the Account model with th
 admin.site.register(UserProfile, UserProfileAdmin)  # Register the UserProfile model with the custom admin class UserProfileAdmin
 admin.site.register(Logo)  # Register the Logo model with the default admin options
 
+<<<<<<< Updated upstream
+=======
+admin.site.register(Account, AccountAdmin)
+admin.site.register(UserProfile, UserProfileAdmin)
+>>>>>>> Stashed changes

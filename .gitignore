@@ -16,6 +16,9 @@ sqlite3.exe
 sqlite3.def
 sqlite3.dll
 env
+README.md
+ecommerce.pem
+
 
 # If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/
 # in your Git repository. Update and uncomment the following line accordingly.

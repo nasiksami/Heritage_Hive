@@ -9,6 +9,9 @@ from .forms import ReviewForm
 from django.contrib import messages
 from cart.models import Order_Product
 from django.http import JsonResponse
+from django.core.mail import EmailMessage
+
+from subscribe.classes import ConcreteSubject
 from subscribe.models import SubscribeModel
 # Create your views here.
 from .models import Product
@@ -37,7 +40,7 @@ client.recreate_collection(collection_name='product_collection',
 
 # vectorized our data create word embedaded
 model = SentenceTransformer('all-MiniLM-L6-v2')
-df = load_data('E:\ecommerce_local\data1.csv')
+df = load_data('~/ecommerce_final/data1.csv')
 docx, payload = prepare_data(df)
 # vectors=load_vectors('vectorized_courses.pickle')
 # print(docx)
@@ -71,7 +74,7 @@ def store(request,category_slug=None):
     if category_slug!=None:
         categories=get_object_or_404(Category,slug=category_slug)
         all_product=Product.objects.all().filter(is_available=True,category=categories)
-        paginator=Paginator(all_product,1)
+        paginator=Paginator(all_product,5)
         page=request.GET.get('page')
         paged_products=paginator.get_page(page)
         count=all_product.count()
@@ -165,12 +168,13 @@ def search(request):
             # vectorized the search term
             vectorized_text = model.encode(keyword).tolist()
             products= client.search(collection_name='product_collection',
-                        query_vector=vectorized_text, limit=5)
+                        query_vector=vectorized_text)
             # count=products.count()            
             #search the vectorDB and and get recomandation
             result=[]
+            print(products)
             for product in products:
-                if product.score>0.7:
+                if product.score>0.4:
                     data=Product.objects.get(id=product.payload['id'])
                     result.append(data)
         context={
@@ -239,13 +243,20 @@ def add_product(request):
             data=request.POST
             product_name=data.get('product_name')
             product_description=data.get('product_description')
-            stock_count=data.get('stock_count')
+            stock_count=data.get('item_stock')
             item_price=data.get('item_price')
             product_image=request.FILES.get('product_image')
             category_id=data.get('category')
             product_exists=Product.objects.filter(product_name=product_name).exists()
             slug=slugify(product_name)
             user=request.user
+            if int(stock_count)<0 or int(item_price)<0:
+                context={
+                    'error':"Stock count and Item price cannot be negative",
+                    'category':categories,
+                    }
+                return render(request,'accounts/add_products.html',context)
+
 
             if product_exists:
                 context={
@@ -259,6 +270,19 @@ def add_product(request):
                     'category':categories,
                     'message':"Item successfully added"
                     }
+                    
+                subject = 'New Product Added'
+                message = f"A new item '{product_name}' has been added in category {category.category_name} in our greatStore. Check it out!"
+
+                subscribeModel =SubscribeModel.objects.filter(category=category)
+                users=0
+                if len(subscribeModel)==0:
+                    pass
+                else:
+                    subscribe=subscribeModel[0]
+                    instance_subject=ConcreteSubject()
+                    instance_subject.notify(subscribe,subject,message)
+
             return render(request,'accounts/add_products.html',context)
 
         elif request.method=="GET":
@@ -276,3 +300,29 @@ def add_product(request):
                     'error':f"Some unexpected error occured {error}"
                     }
         return render(request,'accounts/add_products.html',context)
+
+
+def ranges(request):
+    min_price = request.GET.get('min')
+    max_price = request.GET.get('max')
+
+   
+
+    all_products = Product.objects.all()  # Get all products initially
+   
+
+    if min_price is not None and max_price is not None:  # Check if both min and max prices are provided
+        all_products = all_products.filter(price__gte=min_price, price__lte=max_price)
+    
+   
+
+    paginator = Paginator(all_products, 6)
+    page_number = request.GET.get('page')
+    paged_products = paginator.get_page(page_number)
+    count = all_products.count()
+
+    context = {
+        'all_products': paged_products,
+        'count': count
+    }
+    return render(request, 'store/store.html', context)

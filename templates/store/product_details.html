@@ -64,7 +64,8 @@
                 </div>
               </div>
               <hr>
-
+                {% if request.user.is_seller %}
+                {% else %}
               {% if single_product.stock <= 0 %} <h5 class="btn btn-danger">Out of stock</h5>
 
 
@@ -74,7 +75,7 @@
 
                 <button type="submit" class="btn  btn-primary"> <span class="text">Add to
                     cart</span> <i class="fas fa-shopping-cart"></i></button>
-
+                  {% endif %}
                 {% endif %}
 
             </article> <!-- product-info-aside .// -->
@@ -96,9 +97,8 @@
 
 
         <form action="{% url 'submit_review' single_product.id %}" method="POST">
-
           {% csrf_token %}
-          <h5>write Your Reviews</h5>
+          <h5>Write Your Review</h5>
           <div>
             <!-- rating stars -->
             <label>How do you rate this product?</label>
@@ -133,14 +133,13 @@
             </textarea>
             <br>
             {% if user.is_authenticated %}
-
             {% if orders %}
+
             <input type="submit" value="Submit Review" class="btn btn-primary">
             {% else %}
-            <p>You must Purchased that product in to post a Review.</p>
-
-
+            <p>You Must Purchase This Product to Post a Review.</p>
             {% endif %}
+
             {% else %}
 
             <p>You must be logged in to post a Review.</p>
