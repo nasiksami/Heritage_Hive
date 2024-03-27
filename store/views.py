@@ -11,7 +11,7 @@ from cart.models import Order_Product
 from django.http import JsonResponse
 from django.core.mail import EmailMessage
 
-
+from subscribe.classes import ConcreteSubject
 from subscribe.models import SubscribeModel
 # Create your views here.
 from .models import Product
@@ -40,7 +40,7 @@ client.recreate_collection(collection_name='product_collection',
 
 # vectorized our data create word embedaded
 model = SentenceTransformer('all-MiniLM-L6-v2')
-df = load_data('~/ecommerce_final/data1.csv')
+df = load_data('data1.csv')
 docx, payload = prepare_data(df)
 # vectors=load_vectors('vectorized_courses.pickle')
 # print(docx)
@@ -243,13 +243,20 @@ def add_product(request):
             data=request.POST
             product_name=data.get('product_name')
             product_description=data.get('product_description')
-            stock_count=data.get('stock_count')
+            stock_count=data.get('item_stock')
             item_price=data.get('item_price')
             product_image=request.FILES.get('product_image')
             category_id=data.get('category')
             product_exists=Product.objects.filter(product_name=product_name).exists()
             slug=slugify(product_name)
             user=request.user
+            if int(stock_count)<0 or int(item_price)<0:
+                context={
+                    'error':"Stock count and Item price cannot be negative",
+                    'category':categories,
+                    }
+                return render(request,'accounts/add_products.html',context)
+
 
             if product_exists:
                 context={
@@ -267,16 +274,15 @@ def add_product(request):
                 subject = 'New Product Added'
                 message = f"A new item '{product_name}' has been added in category {category.category_name} in our greatStore. Check it out!"
 
-                usersmodel =SubscribeModel.objects.filter(category=category)
+                subscribeModel =SubscribeModel.objects.filter(category=category)
                 users=0
-                if len(usersmodel)==0:
-                    return 
+                if len(subscribeModel)==0:
+                    pass
                 else:
-                    users=usersmodel[0]
-                for user in users.subscribers.all():
-                    to_email=user.email
-                    send_email = EmailMessage(subject, message, to=[to_email])
-                    send_email.send()
+                    subscribe=subscribeModel[0]
+                    instance_subject=ConcreteSubject()
+                    instance_subject.notify(subscribe,subject,message)
+
             return render(request,'accounts/add_products.html',context)
 
         elif request.method=="GET":
