@@ -1,5 +1,8 @@
 # Heritage Hive: Bridging Artisans and Global Markets
 
+![Heritage Hive Banner](https://github.com/nasiksami/Heritage_Hive/blob/main/static/images/banners/cover2.jpg?raw=true)
+
+
 ## Welcome to Heritage Hive!
 
 Heritage Hive is an innovative e-commerce platform designed to connect local artisans from isolated or rural locations with a global customer base, facilitating the exhibition and sale of heritage items. By supporting local economies and preserving global cultural heritage, Heritage Hive serves a dual purpose of economic empowerment and cultural education.
