@@ -55,3 +55,12 @@ class UserProfileForm(forms.ModelForm):
         super(UserProfileForm, self).__init__(*args, **kwargs)
         for field in self.fields:
             self.fields[field].widget.attrs['class'] = 'form-control'
+
+
+
+class ProductEditForm(forms.Form):
+    product_name = forms.CharField(max_length=100)
+    description = forms.CharField(widget=forms.Textarea)
+    stock = forms.IntegerField()
+    images = forms.ImageField()
+    price = forms.DecimalField(decimal_places=2)
