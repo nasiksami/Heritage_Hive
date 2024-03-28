@@ -25,7 +25,7 @@ def _cart_id(request):
 
 
 def add_cart(request,product_id):
-    # if the user is login 
+    # if the user login 
     current_user=request.user
      
     product=Product.objects.get(id=product_id) #get the particular product
