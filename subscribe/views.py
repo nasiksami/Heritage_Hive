@@ -4,6 +4,7 @@ from subscribe.models import SubscribeModel
 from account.models import Account
 from subscribe.classes import ConcreteSubject
 # Create your views here.
+# this is to subcribe the subject to be observed by an observer
 def subscribe(request,category_id):
    try:
        user=request.user
