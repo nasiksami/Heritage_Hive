@@ -65,7 +65,7 @@ class Payment(models.Model):
 #     def __str__(self):
 #         return self.first_name
 
-
+#
 class OrderProduct(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     payment = models.ForeignKey(Payment,related_name='payments', on_delete=models.SET_NULL, blank=True, null=True)
