@@ -27,6 +27,6 @@ urlpatterns = [
     path('account/',include('account.urls')),
    
 
-    # for the order apps
+    # for order apps
     # path('orders/',include('order.urls')),
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
