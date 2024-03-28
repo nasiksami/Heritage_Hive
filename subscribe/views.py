@@ -22,7 +22,7 @@ def subscribe(request,category_id):
         print(error)
         return JsonResponse({'error':f"unexcepcted error: {error}"},status=400)
 
-
+# this is to unsubcribe the subject which was observed by an observer
 def unsubscribe(request,category_id):
     try:
        user=request.user
