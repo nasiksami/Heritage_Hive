@@ -266,6 +266,8 @@ def add_product(request):
                     'category':categories,
                     'error':"Product already exists"
                         }
+            
+            #Create a new product object with user, slugified name, description, image, stock, price, and category information.
             else:
                 category=Category.objects.get(id=category_id)
                 Product.objects.create(created_by=user,slug=slug,product_name=product_name,description=product_description,images=product_image,stock=stock_count,price=item_price,category=category)
@@ -276,7 +278,8 @@ def add_product(request):
                     
                 subject = 'New Product Added'
                 message = f"A new item '{product_name}' has been added in category {category.category_name} in our greatStore. Check it out! Visit our store at https://20.151.74.5/"
-
+                
+                #Check if subscribers exist for the category.
                 subscribeModel =SubscribeModel.objects.filter(category=category)
                 users=0
                 if len(subscribeModel)==0:
@@ -285,6 +288,7 @@ def add_product(request):
                     subscribe=subscribeModel[0]
                     instance_subject=ConcreteSubject()
                     instance_subject.notify(subscribe,subject,message)
+                    #Notify function will Loop through subscribers and send them an email notification about the new product.
 
             return render(request,'accounts/add_products.html',context)
 
